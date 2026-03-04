@@ -15,9 +15,6 @@
 - [How to Run](#how-to-run)
 - [Pipeline Breakdown](#pipeline-breakdown)
 - [Sample Questions to Ask](#sample-questions-to-ask)
-- [Design Decisions](#design-decisions)
-- [Limitations](#limitations)
-- [Future Improvements](#future-improvements)
 - [Dataset Source](#dataset-source)
 - [Conclusion](#conclusion)
 
@@ -69,7 +66,7 @@ The goal of this assignment is to:
 │          │                                                      │
 │          ▼                                                      │
 │  ┌──────────────────┐                                           │
-│  │  PyMuPDF Parser  │  ← Extracts text page-by-page            │
+│  │  PyMuPDF Parser  │  ← Extracts text page-by-page             │
 │  └──────────────────┘                                           │
 │          │                                                      │
 │          ▼                                                      │
@@ -79,13 +76,13 @@ The goal of this assignment is to:
 │          │                                                      │
 │          ▼                                                      │
 │  ┌──────────────────────────────┐                               │
-│  │  HuggingFace Embeddings      │  ← all-MiniLM-L6-v2          │
+│  │  HuggingFace Embeddings      │  ← all-MiniLM-L6-v2           │
 │  │  (sentence-transformers)     │                               │
 │  └──────────────────────────────┘                               │
 │          │                                                      │
 │          ▼                                                      │
 │  ┌──────────────────┐                                           │
-│  │  FAISS VectorDB  │  ← Saved locally as swiggy_vector_db     │
+│  │  FAISS VectorDB  │  ← Saved locally as swiggy_vector_db      │
 │  └──────────────────┘                                           │
 └─────────────────────────────────────────────────────────────────┘
 
@@ -96,22 +93,22 @@ The goal of this assignment is to:
 │          │                                                      │
 │          ▼                                                      │
 │  ┌──────────────────┐                                           │
-│  │  FAISS Retriever │  ← Top-5 semantic similarity search      │
+│  │  FAISS Retriever │  ← Top-5 semantic similarity search       │
 │  └──────────────────┘                                           │
 │          │                                                      │
 │          ▼                                                      │
 │  ┌────────────────────────────┐                                 │
-│  │  Format Retrieved Chunks   │  ← With page metadata          │
+│  │  Format Retrieved Chunks   │  ← With page metadata           │
 │  └────────────────────────────┘                                 │
 │          │                                                      │
 │          ▼                                                      │
 │  ┌─────────────────────────────────────┐                        │
-│  │  ChatPromptTemplate + Groq Llama 3  │  ← Grounded answer    │
+│  │  ChatPromptTemplate + Groq Llama 3  │  ← Grounded answer     │
 │  └─────────────────────────────────────┘                        │
 │          │                                                      │
 │          ▼                                                      │
 │  ┌──────────────────┐                                           │
-│  │  StrOutputParser │  ← Clean string output                   │
+│  │  StrOutputParser │  ← Clean string output                    │
 │  └──────────────────┘                                           │
 │          │                                                      │
 │          ▼                                                      │
